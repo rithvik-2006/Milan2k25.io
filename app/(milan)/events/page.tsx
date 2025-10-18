@@ -174,7 +174,7 @@ export default function EventsPage() {
 
   return (
     <div
-  className="min-h-screen w-screen bg-cover bg-center bg-no-repeat"
+  className="min-h-screen w-screen bg-cover bg-transparent bg-center bg-no-repeat"
   style={{ backgroundImage: "url('/milan_bg_30.png')",background: "linear-gradient(135deg, #141E30, #243B55)",marginLeft: "calc(50% - 50vw)",
     marginRight: "calc(50% - 50vw)",
     width: "100vw" }}>
