@@ -8,7 +8,7 @@ import { EventCard } from "@/components/event-card"
 import { events } from "@/lib/data"
 import { SponsorsCarousel } from "@/components/sponsors-carousel"
 import { Leaderboard } from "@/components/leaderboard"
-import { ChatbotFAB } from "@/components/chatbot-fab"
+// import { ChatbotFAB } from "@/components/chatbot-fab"
 import { UpcomingEventsCounter } from "@/components/upcoming-events-counter"
 import { Button } from "@/components/ui/button"
 
@@ -23,27 +23,27 @@ export default function Page() {
   const [activeTab, setActiveTab] = useState("leaderboard")
 
   // 🎉 Confetti effect on page load
-  useEffect(() => {
-    const duration = 3000
-    const animationEnd = Date.now() + duration
-    const defaults = { startVelocity: 40, spread: 360, ticks: 80, zIndex: 1000, scalar: 1.5 }
+  // useEffect(() => {
+  //   const duration = 3000
+  //   const animationEnd = Date.now() + duration
+  //   const defaults = { startVelocity: 40, spread: 360, ticks: 80, zIndex: 1000, scalar: 1.5 }
 
-    const interval = setInterval(() => {
-      const timeLeft = animationEnd - Date.now()
-      if (timeLeft <= 0) return clearInterval(interval)
+  //   const interval = setInterval(() => {
+  //     const timeLeft = animationEnd - Date.now()
+  //     if (timeLeft <= 0) return clearInterval(interval)
 
-      for (let i = 0; i < 3; i++) {
-        const particleCount = 40 * (timeLeft / duration)
-        confetti({
-          ...defaults,
-          particleCount,
-          origin: { x: Math.random(), y: Math.random() - 0.2 },
-        })
-      }
-    }, 200)
+  //     for (let i = 0; i < 3; i++) {
+  //       const particleCount = 40 * (timeLeft / duration)
+  //       confetti({
+  //         ...defaults,
+  //         particleCount,
+  //         origin: { x: Math.random(), y: Math.random() - 0.2 },
+  //       })
+  //     }
+  //   }, 200)
 
-    return () => clearInterval(interval)
-  }, [])
+  //   return () => clearInterval(interval)
+  // }, [])
 
   return (
     <>
@@ -221,7 +221,7 @@ export default function Page() {
         </section>
 
         {/* Chatbot */}
-        <ChatbotFAB />
+        {/* <ChatbotFAB /> */}
       </div>
     </>
   )
