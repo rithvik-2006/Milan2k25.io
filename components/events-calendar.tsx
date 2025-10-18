@@ -204,8 +204,8 @@ export default function EventsCalendar() {
       </div>
 
       {/* Layout */}
-      <div className="grid gap-6 lg:grid-cols-2">
-        <div className="order-1 lg:order-none">
+      <div className="grid gap-6 lg:grid-cols-2 ">
+        <div className="order-1 lg:order-none p-2 border-0.5 rounded-2xl border border-white">
           <MonthView
             events={upcoming.map((ev) => ({
               ...ev,
@@ -216,16 +216,16 @@ export default function EventsCalendar() {
           />
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-8 ">
           {/* Preferred Events */}
-          <Card className="max-h-[400px] overflow-hidden">
+          <Card className="max-h-[400px] overflow-hidden border-white">
             <CardHeader className="text-center">
               <CardTitle>
                 {selectedDate
                   ? `Preferred Events on ${format(
-                      effectiveDate,
-                      "EEEE, MMM d yyyy"
-                    )}`
+                    effectiveDate,
+                    "EEEE, MMM d yyyy"
+                  )}`
                   : `Preferred Events Today`}
               </CardTitle>
             </CardHeader>
@@ -242,9 +242,8 @@ export default function EventsCalendar() {
                             <p className="text-sm text-muted-foreground">
                               {ev.category}{" "}
                               {dt
-                                ? `• ${format(dt, "MMM d, yyyy")} ${
-                                    ev.startTime ?? ""
-                                  }`
+                                ? `• ${format(dt, "MMM d, yyyy")} ${ev.startTime ?? ""
+                                }`
                                 : ""}
                             </p>
                           </div>
@@ -262,7 +261,7 @@ export default function EventsCalendar() {
           </Card>
 
           {/* Other Events */}
-          <Card className="max-h-[400px] overflow-hidden">
+          <Card className="max-h-[400px] overflow-hidden border-white">
             <CardHeader className="text-center">
               <CardTitle>Other Events</CardTitle>
             </CardHeader>
@@ -279,9 +278,8 @@ export default function EventsCalendar() {
                             <p className="text-sm text-muted-foreground">
                               {ev.category}{" "}
                               {dt
-                                ? `• ${format(dt, "MMM d, yyyy")} ${
-                                    ev.startTime ?? ""
-                                  }`
+                                ? `• ${format(dt, "MMM d, yyyy")} ${ev.startTime ?? ""
+                                }`
                                 : ""}
                             </p>
                           </div>
