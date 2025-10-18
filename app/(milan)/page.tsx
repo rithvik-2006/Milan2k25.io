@@ -49,13 +49,13 @@ export default function Page() {
     <>
       <div
         className="min-h-screen w-screen bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/milan_bg_30.png')",
-          background: "linear-gradient(135deg, #141E30, #243B55)",
-          marginLeft: "calc(50% - 50vw)",
-          marginRight: "calc(50% - 50vw)",
-          width: "100vw",
-        }}
+        // style={{
+        //   backgroundImage: "url('/milan_bg_30.png')",
+        //   // background: "linear-gradient(135deg, #141E30, #243B55)",
+        //   marginLeft: "calc(50% - 50vw)",
+        //   marginRight: "calc(50% - 50vw)",
+        //   width: "100vw",
+        // }}
       >
         {/* About Milan with background image */}
         <section
@@ -75,10 +75,10 @@ export default function Page() {
               MILAN
             </h1>
 
-            <p className="mt-8 max-w-4xl mx-auto md:text-lg md:text-2xl text-white/90 leading-relaxed">
+            <p className="mt-8 max-w-4xl mx-auto md:text-lg lg:text-2xl text-white/90 leading-relaxed">
               MILAN stands as one of the largest and most eagerly awaited inter-hostel competitions in India. It is a thrilling showcase of talent and spirit, uniting students in a vibrant and dynamic celebration.
             </p>
-            <p className="mt-8 max-w-4xl mx-auto md:text-lg md:text-2xl text-white/90 leading-relaxed">
+            <p className="mt-8 max-w-4xl mx-auto md:text-lg lg:text-2xl text-white/90 leading-relaxed">
               With each passing year, participation in this General Championship has been on the rise, contributing to an atmosphere of heightened enthusiasm and camaraderie. Drawing over 6,000+ attendees.
             </p>
           </div>
