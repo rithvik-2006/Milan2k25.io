@@ -76,10 +76,11 @@ export default function EventsPage() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:3000"}/api/events` || "/api/events")
+        const res = await fetch("/api/events");
         if (!res.ok) throw new Error("Failed to fetch events")
         const data: Event[] = await res.json()
         setEvents(data)
+        console.log(data)
       } catch (err: any) {
         toast({ title: "Failed to fetch events", description: err.message })
       }
