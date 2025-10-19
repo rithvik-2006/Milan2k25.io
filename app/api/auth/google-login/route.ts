@@ -1,3 +1,4 @@
+//api/auth/google-login/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "../../../../firebase/firebase";
 import { User } from "../../../../models/user";

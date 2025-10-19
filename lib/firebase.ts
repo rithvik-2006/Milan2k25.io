@@ -1,28 +1,33 @@
-// lib/firebase.ts
-import { initializeApp } from "firebase/app";
+// lib/firebaseClient.ts
+import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, isSupported } from "firebase/analytics";
 
-// Your web app's Firebase configuration
+// Firebase configuration (uses your new project values)
 const firebaseConfig = {
-  apiKey: "AIzaSyBT77DLqV1-vz1QSOIj7Qpkv8UyYDqpKdg",
-  authDomain: "authntication-c0e8e.firebaseapp.com",
-  projectId: "authntication-c0e8e",
-  storageBucket: "authntication-c0e8e.appspot.com",
-  messagingSenderId: "261153967817",
-  appId: "1:261153967817:web:9ca030f3d5609be77bc718",
-  measurementId: "G-1MF2G4FE60",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY ,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN ,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID ,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET ,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID ,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID ,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID ,
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-// export const analytics = getAnalytics(app);
+// Prevent double initialization
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
-// Initialize Firebase Auth
+// Firebase Auth setup
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
-export const getAnalyticsClient = () => {
+
+// Optional Analytics (works only in client/browser)
+export const getAnalyticsClient = async () => {
   if (typeof window === "undefined") return null;
-  const { getAnalytics } = require("firebase/analytics");
-  return getAnalytics(app);
+  try {
+    const supported = await isSupported();
+    return supported ? getAnalytics(app) : null;
+  } catch {
+    return null;
+  }
 };

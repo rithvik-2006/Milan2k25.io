@@ -1,3 +1,4 @@
+//app/api/auth/profile/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { withAuth } from "../../../../middleware/auth";
 import { User } from "@/models/user";
